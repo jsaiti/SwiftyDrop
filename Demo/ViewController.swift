@@ -84,13 +84,19 @@ class ViewController: UIViewController {
             }
             Drop.down(self.sampleText(), state: Custom.blackGreen)
         }
+        
         let durationAction = UIAlertAction(title: "Duration", style: .default) { [unowned self] action -> Void in
             self.showDurationAlert()
         }
+        
+        let vyouAction = UIAlertAction(title: "vYou", style: .default) { [unowned self] action -> Void in
+            Drop.down(self.sampleText(), state: .vyou)
+        }
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         let controller = UIAlertController(title: "Samples", message: "Select to show drop down message.", preferredStyle: .actionSheet)
-        for action in [defaultAction, infoAction, successAction, warningAction, errorAction, colorAction, actionableAction, blurAction, customAction, durationAction, cancelAction] {
+        for action in [defaultAction, infoAction, successAction, warningAction, errorAction, colorAction, actionableAction, blurAction, customAction, durationAction, vyouAction, cancelAction] {
             controller.addAction(action)
         }
         showAlert(controller, sourceView: sender as? UIView)
